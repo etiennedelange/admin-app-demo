@@ -1,0 +1,26 @@
+<!-- <mat-card class="mat-elevation-z2">
+    <mat-card-header>
+        <mat-card-title class="back-button">
+            <button mat-icon-button color="primary" (click)="goBack()">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </button>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <div>
+                <app-form-field formControlName="name" label="Name" type="text" id="name" name="name" required>
+                </app-form-field>
+            </div>
+            <div>
+        </form>
+        <div id="saveBtn" *ngIf="attorney?.id > 0">
+            <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                    (click)="save()">Save</button>
+        </div>
+        <div id="addBtn" *ngIf="!attorney?.id || attorney?.id == 0">
+            <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                    (click)="add()">Add</button>
+        </div>
+    </mat-card-content>
+</mat-card> -->

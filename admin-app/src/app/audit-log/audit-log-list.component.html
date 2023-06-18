@@ -1,0 +1,38 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Audit Log</mat-card-title>
+        </mat-card-header>
+
+        <div id="search-container">
+            <mat-form-field>
+                <input matInput placeholder="Search" #filter autocomplete="off" />
+            </mat-form-field>
+        </div>
+
+        <mat-table [dataSource]="dataSource" matSort matSortActive="Name" matSortDirection="asc" matSortDisableClear>
+            <ng-container matColumnDef="User">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>USER</mat-header-cell>
+                <mat-cell *matCellDef="let auditLog">{{auditLog.user}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Date">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>DATE</mat-header-cell>
+                <mat-cell *matCellDef="let auditLog">{{auditLog.date | date: 'dd MMM yyyy HH:mm a'}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Data">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>DATA</mat-header-cell>
+                <mat-cell *matCellDef="let auditLog" class="audit-log-entry">
+                    <pre>{{auditLog.data}}</pre>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsToDisplay"
+                     (click)="onRowClicked(row)"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSize]="pageSize"
+                       [pageSizeOptions]="[10, 25, 500]"
+                       [length]="total"></mat-paginator>
+
+    </mat-card>
+</div>

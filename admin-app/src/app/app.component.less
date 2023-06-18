@@ -1,0 +1,94 @@
+.content-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: rgb(248, 249, 250);
+  }
+
+  .content-container-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+    background-color: rgb(248, 249, 250);
+  }
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 85%;
+}
+
+.main-content-row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    font-size: 85%;
+}
+
+@media screen and (max-width: 768px) {
+    .main-content-row {
+        flex-direction: column;    
+    }
+}
+
+.section-content {
+    flex: 1;
+    // view full height - toolbar height
+    height: calc(100vh - 64px);
+    padding: 12px;
+    overflow-y: auto;
+}
+
+
+// Tenmplate for holy grail layout
+// .container2 {
+//     background-color: yellow;
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100vh;
+//   }
+  
+//   .main2 {
+//     background-color: brown;
+//     display: flex;
+//     flex: 1;
+//     flex-direction: row;    
+//   }
+
+//   @media screen and (max-width: 768px) {
+//     .main2 {
+//         flex-direction: column;    
+//     }
+// }
+  
+//   .nav2 {
+//     background-color: blanchedalmond;
+//     //width: 250px;
+//     flex: 0 0 250px;
+//   }
+
+//   .header2 {
+//       height: 50px;
+//   }
+  
+//   .content2 {
+//     background-color: aqua;
+//     flex: 1;
+//     height: calc(100vh - 50px);
+//     overflow: auto;
+//   }
+
+// MatProgressBar overrides
+// .loading-container {
+//   top: 0;
+//   width: 100vw;
+//   position: fixed;
+//   z-index: 110;
+//   overflow: hidden;
+// }
+
+// .mat-progress-bar {
+//   height: 2px;
+// }

@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Reports</mat-card-title>
+    </mat-card-header>
+    <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let report of reports" (click)="downloadReport(report)">
+            {{report.displayName}}
+        </mat-list-option>
+    </mat-selection-list>
+</mat-card>

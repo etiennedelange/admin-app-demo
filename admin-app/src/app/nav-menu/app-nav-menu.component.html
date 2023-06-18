@@ -1,0 +1,8 @@
+<nav class="nav-menu">
+    <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let item of authorisedMenuItems"
+                         [routerLink]="item.routerLink">
+            {{item.displayName}}
+        </mat-list-option>
+    </mat-selection-list>
+</nav>

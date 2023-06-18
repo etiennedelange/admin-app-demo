@@ -1,0 +1,21 @@
+<mat-form-field [floatLabel]="floatLabel">
+    <mat-label>{{label}}</mat-label>
+    <mat-hint *ngIf="hint">{{hint}}</mat-hint>
+    <input [required]="required"
+           [id]="id"
+           [(ngModel)]="value"
+           [placeholder]="placeholder"
+           [type]="type"
+           [name]="name"
+           [pattern]="pattern"
+           matInput
+           (input)="onChange($event.target.value)"
+           (blur)="blur.emit($event)"
+           [readonly]="readonly"
+           [disabled]="disabled"
+           [autocomplete]="autocomplete" />
+    <!-- Why does mat-error not work with custom ControlValueAccessor?? -->
+    <!-- Have to set validation in HTML, does not pull through validation from formGroup in controller -->
+    <mat-error *ngIf="true">{{getErrorMessage()}}</mat-error>
+    <!-- <div class="validation-error" *ngIf="formControl.invalid">{{getErrorMessage()}}</div> -->
+</mat-form-field>

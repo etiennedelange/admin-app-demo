@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{223F4799-70A2-44B7-B5CD-0FE3921DCE61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdminApp.Data.NET</RootNamespace>
+    <AssemblyName>AdminApp.Data.NET</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminAppDbContext.cs" />
+    <Compile Include="Migrations\202104131147376_SettingTableChanges.cs" />
+    <Compile Include="Migrations\202104131147376_SettingTableChanges.designer.cs">
+      <DependentUpon>202104131147376_SettingTableChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104131152509_EnableCascadeDeleteForFirms.cs" />
+    <Compile Include="Migrations\202104131152509_EnableCascadeDeleteForFirms.designer.cs">
+      <DependentUpon>202104131152509_EnableCascadeDeleteForFirms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AttorneySetting.cs" />
+    <Compile Include="EntityChangeSerializer.cs" />
+    <Compile Include="Migrations\202101181930544_InitialCreate.cs" />
+    <Compile Include="Migrations\202101181930544_InitialCreate.designer.cs">
+      <DependentUpon>202101181930544_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101271152519_CreatingTemplateDomainObjects.cs" />
+    <Compile Include="Migrations\202101271152519_CreatingTemplateDomainObjects.designer.cs">
+      <DependentUpon>202101271152519_CreatingTemplateDomainObjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102040804086_CreateLinkingTablesForProductVersions.cs" />
+    <Compile Include="Migrations\202102040804086_CreateLinkingTablesForProductVersions.designer.cs">
+      <DependentUpon>202102040804086_CreateLinkingTablesForProductVersions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102040941522_RenameProductVersionToVersionNumber.cs" />
+    <Compile Include="Migrations\202102040941522_RenameProductVersionToVersionNumber.designer.cs">
+      <DependentUpon>202102040941522_RenameProductVersionToVersionNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102181322358_AddTemplateDateFields.cs" />
+    <Compile Include="Migrations\202102181322358_AddTemplateDateFields.designer.cs">
+      <DependentUpon>202102181322358_AddTemplateDateFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102181854086_RemoveCascadeDeleteConvention.cs" />
+    <Compile Include="Migrations\202102181854086_RemoveCascadeDeleteConvention.designer.cs">
+      <DependentUpon>202102181854086_RemoveCascadeDeleteConvention.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102190704447_SwitchedToDateTime2.cs" />
+    <Compile Include="Migrations\202102190704447_SwitchedToDateTime2.designer.cs">
+      <DependentUpon>202102190704447_SwitchedToDateTime2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103161700250_AddNotificationTable.cs" />
+    <Compile Include="Migrations\202103161700250_AddNotificationTable.designer.cs">
+      <DependentUpon>202103161700250_AddNotificationTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103301536572_RenameLoggedEventTableAndColumns.cs" />
+    <Compile Include="Migrations\202103301536572_RenameLoggedEventTableAndColumns.designer.cs">
+      <DependentUpon>202103301536572_RenameLoggedEventTableAndColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104070604295_ReportsCleanup.cs" />
+    <Compile Include="Migrations\202104070604295_ReportsCleanup.designer.cs">
+      <DependentUpon>202104070604295_ReportsCleanup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104091350592_ModifyAuditLogTable.cs" />
+    <Compile Include="Migrations\202104091350592_ModifyAuditLogTable.designer.cs">
+      <DependentUpon>202104091350592_ModifyAuditLogTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104120706113_DropTableJobTitle.cs" />
+    <Compile Include="Migrations\202104120706113_DropTableJobTitle.designer.cs">
+      <DependentUpon>202104120706113_DropTableJobTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Attorney.cs" />
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\AuditLog.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\Templates\DesktopProductVersion.cs" />
+    <Compile Include="Models\Templates\OnlineProductVersion.cs" />
+    <Compile Include="Models\Templates\Template.cs" />
+    <Compile Include="Models\Templates\TemplateData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AttorneyRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\SettingRepository.cs" />
+    <Compile Include="Repositories\TemplateRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="nlog.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <Version>2.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+      <Version>3.3.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202101181930544_InitialCreate.resx">
+      <DependentUpon>202101181930544_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101271152519_CreatingTemplateDomainObjects.resx">
+      <DependentUpon>202101271152519_CreatingTemplateDomainObjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102040804086_CreateLinkingTablesForProductVersions.resx">
+      <DependentUpon>202102040804086_CreateLinkingTablesForProductVersions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102040941522_RenameProductVersionToVersionNumber.resx">
+      <DependentUpon>202102040941522_RenameProductVersionToVersionNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102181322358_AddTemplateDateFields.resx">
+      <DependentUpon>202102181322358_AddTemplateDateFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102181854086_RemoveCascadeDeleteConvention.resx">
+      <DependentUpon>202102181854086_RemoveCascadeDeleteConvention.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102190704447_SwitchedToDateTime2.resx">
+      <DependentUpon>202102190704447_SwitchedToDateTime2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103161700250_AddNotificationTable.resx">
+      <DependentUpon>202103161700250_AddNotificationTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103301536572_RenameLoggedEventTableAndColumns.resx">
+      <DependentUpon>202103301536572_RenameLoggedEventTableAndColumns.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104070604295_ReportsCleanup.resx">
+      <DependentUpon>202104070604295_ReportsCleanup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104091350592_ModifyAuditLogTable.resx">
+      <DependentUpon>202104091350592_ModifyAuditLogTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104120706113_DropTableJobTitle.resx">
+      <DependentUpon>202104120706113_DropTableJobTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104131147376_SettingTableChanges.resx">
+      <DependentUpon>202104131147376_SettingTableChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104131152509_EnableCascadeDeleteForFirms.resx">
+      <DependentUpon>202104131152509_EnableCascadeDeleteForFirms.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdminApp.Common\AdminApp.Common.csproj">
+      <Project>{26712bd4-d92a-4fa3-8114-2ab95e9e9553}</Project>
+      <Name>AdminApp.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

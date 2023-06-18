@@ -1,0 +1,23 @@
+﻿<div class="content-container-column" id="bootstrap-override">
+    <app-loading-bar></app-loading-bar>
+    <app-header></app-header>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenavRight
+                     position="end"
+                     mode="side">
+            <app-sidenav></app-sidenav>
+        </mat-sidenav>
+        <mat-sidenav #sidenavLeft
+                     [opened]="isLoggedIn()"
+                     mode="side">
+            <app-nav-menu></app-nav-menu>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <main class="main-content-row">
+                <section class="section-content">
+                    <router-outlet #outlet=outlet></router-outlet>
+                </section>
+            </main>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

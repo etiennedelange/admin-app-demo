@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+    <p>{{data.message}}</p>
+</div>
+<div mat-dialog-actions class="action-button-container">
+    <app-button-secondary *ngIf="data.showCancel" class="button-base" (onclick)="cancel()"
+                          text="Cancel"></app-button-secondary>
+    <app-button-primary class="button-base" (onclick)="okay()" text="Okay"></app-button-primary>
+</div>

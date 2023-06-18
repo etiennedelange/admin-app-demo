@@ -1,0 +1,54 @@
+﻿<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Settings</mat-card-title>
+        </mat-card-header>
+
+        <div id="search-container">
+            <mat-form-field>
+                <input matInput placeholder="Search" #filter autocomplete="off" />
+            </mat-form-field>
+            <app-add-button [disabled]="!userHasPermissionToAdd()" (onclick)="addSetting()"></app-add-button>
+        </div>
+
+        <mat-table [dataSource]="dataSource" matSort matSortActive="Name" matSortDirection="asc" matSortDisableClear>
+            <ng-container matColumnDef="Description">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>NAME</mat-header-cell>
+                <mat-cell *matCellDef="let setting">{{setting.description}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Guid">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>GUID</mat-header-cell>
+                <mat-cell *matCellDef="let setting">{{setting.guid}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Enabled">
+                <mat-header-cell mat-sort-header *matHeaderCellDef>Enabled (Globally)</mat-header-cell>
+                <mat-cell *matCellDef="let setting">{{setting.enabledGlobally | boolstring}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Actions">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let setting" class="table-actions">
+                    <button mat-icon-button color="primary"
+                            [matMenuTriggerFor]="menu"
+                            (click)="$event.stopPropagation()">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="delete(setting.id)">
+                            <mat-icon>delete</mat-icon>
+                            <span>Delete</span>
+                        </button>
+                    </mat-menu>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsToDisplay"
+                     (click)="onSettingClicked(row)"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSize]="pageSize"
+                       [pageSizeOptions]="[10, 25, 500]"
+                       [length]="total"></mat-paginator>
+
+    </mat-card>
+</div>

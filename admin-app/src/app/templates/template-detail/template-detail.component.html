@@ -1,0 +1,80 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <app-back-button></app-back-button>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="mat-tab-top-spacing">
+            <form [formGroup]="form" (ngSubmit)="save()">
+                <div>
+                    <app-form-field formControlName="description" label="Description" id="description"
+                                    name="description"
+                                    required>
+                    </app-form-field>
+                </div>
+                <div>
+                    <app-form-field formControlName="guid" label="Guid" type="text" id="guid" name="guid"
+                                    required
+                                    [pattern]="guidPattern">
+                    </app-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Desktop version</mat-label>
+                        <mat-select [compareWith]="compareVersions"
+                                    formControlName="desktopProductVersions"
+                                    multiple
+                                    required>
+                            <mat-option *ngFor="let version of allDesktopVersionNumbers" [value]="version">
+                                {{version.versionNumber}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>Please choose one or more versions</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Online version</mat-label>
+                        <mat-select [compareWith]="compareVersions"
+                                    formControlName="onlineProductVersions"
+                                    multiple
+                                    required>
+                            <mat-option *ngFor="let version of allOnlineVersionNumbers" [value]="version">
+                                {{version.versionNumber}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>Please choose one or more versions</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Hash</mat-label>
+                        <input formControlName="hash"
+                               matInput
+                               name="hash" readonly="true" />
+                    </mat-form-field>
+                    <span>
+                        <button matTooltip="Upload a new template" type="button" mat-icon-button color="primary"
+                                (click)="openFileUploadDialog()">
+                            <mat-icon>upload_file</mat-icon>
+                        </button>
+                    </span>
+                </div>
+                <div>
+                    <mat-checkbox formControlName="available">Available</mat-checkbox>
+                </div>
+                <hr />
+            </form>
+        </div>
+    </mat-card-content>
+
+    <div id="saveBtn" *ngIf="template?.id > 0">
+        <button [disabled]="!isFormValid() || !form.dirty" mat-raised-button color="primary"
+                (click)="save()">Save</button>
+    </div>
+    <div id="addBtn" *ngIf="!template?.id || template?.id == 0">
+        <button [disabled]="!isFormValid() || !form.dirty" mat-raised-button color="primary"
+                (click)="add()">Add</button>
+    </div>
+</mat-card>

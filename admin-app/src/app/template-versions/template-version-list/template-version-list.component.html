@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Platform Versions</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-tab-group>
+            <mat-tab label="Online">
+                <div class="mat-tab-top-spacing">
+                    <template-version-table [dataSource]="onlineVersionsDataSource"
+                                            [requiredAddRoles]="getRequiredRolesToAdd()"
+                                            (add)="addOnlineTemplateVersion()"
+                                            (rowClicked)="onOnlineVersionClicked($event)"
+                                            [paginatorLength]="onlineTemplateVersionTotal">
+                    </template-version-table>
+                </div>
+            </mat-tab>
+            <mat-tab label="Desktop">
+                <div class="mat-tab-top-spacing">
+                    <template-version-table [dataSource]="desktopVersionsDataSource"
+                                            [requiredAddRoles]="getRequiredRolesToAdd()"
+                                            (add)="addDesktopTemplateVersion()"
+                                            (rowClicked)="onDesktopVersionClicked($event)"
+                                            [paginatorLength]="desktopTemplateVersionTotal">
+                    </template-version-table>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>

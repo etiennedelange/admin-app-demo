@@ -1,0 +1,19 @@
+<div class="sidenav-container" [@fade]="notifications.length">
+    <mat-card *ngFor="let item of notifications"
+              class="notification"
+              (click)="openNotification(item)">
+        <div>
+            <mat-card-content class="card-content">
+                <p>{{item.message}}</p>
+            </mat-card-content>
+            <button mat-button color="accent" *ngIf="item.templateId"
+                    class="card-button"
+                    (click)="$event.stopPropagation(); retry(item)">RETRY</button>
+        </div>
+    </mat-card>
+</div>
+<div class="clear-container">
+    <button mat-button color="accent"
+            (click)="clearAllNotifications()">Clear all
+    </button>
+</div>

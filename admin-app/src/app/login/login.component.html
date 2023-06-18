@@ -1,0 +1,28 @@
+﻿<div>
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <div>
+                <app-form-field formControlName="username" label="Email" type="text" id="username" name="username"
+                                required placeholder="Email"></app-form-field>
+            </div>
+            <div>
+                <app-form-field formControlName="password" label="Password" type="password" id="password"
+                                name="password"
+                                required placeholder="Password"></app-form-field>
+            </div>
+            <div class="login-buttons">
+                <div>
+                    <a mat-button color="accent" (click)="navigateToForgetPassword()"
+                       routerLinkActive="router-link-active">Forgot password?</a>
+                </div>
+                <span class="spacer"></span>
+                <div>
+                    <button [disabled]="form.invalid" mat-raised-button color="primary">Login</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

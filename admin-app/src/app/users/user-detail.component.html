@@ -1,0 +1,46 @@
+﻿<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <app-back-button></app-back-button>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="mat-tab-top-spacing">
+            <form [formGroup]="form" (ngSubmit)="save()">
+                <div>
+                    <app-form-field formControlName="fullname" label="Name" type="text" id="fullname"
+                                    name="fullname"
+                                    required>
+                    </app-form-field>
+                </div>
+                <div>
+                    <app-form-field formControlName="username" label="Email" id="username" name="username"
+                                    required
+                                    type="email"
+                                    [pattern]="emailPattern">
+                    </app-form-field>
+                </div>
+                <div>
+                    <mat-checkbox formControlName="isactive">Active</mat-checkbox>
+                </div>
+                <label>Roles</label>
+            </form>
+            <div *ngFor="let role of allRoles">
+                <mat-checkbox [(ngModel)]="role[1]" (change)="roleChanged($event)"
+                              [disabled]="!userHasPermission()">
+                    {{role[0]}}</mat-checkbox>
+            </div>
+            <hr />
+        </div>
+        <!-- <div class="mat-tab-top-spacing"></div>
+        </div> -->
+        <div id="saveBtn" *ngIf="user?.id > 0">
+            <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                    (click)="save()">Save</button>
+        </div>
+        <div id="addBtn" *ngIf="!user?.id || user?.id == 0">
+            <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                    (click)="add()">Add</button>
+        </div>
+    </mat-card-content>
+</mat-card>

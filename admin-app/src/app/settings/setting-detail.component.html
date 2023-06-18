@@ -1,0 +1,31 @@
+﻿<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <app-back-button></app-back-button>
+        </mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div>
+            <app-form-field formControlName="description" label="Description" type="text" id="description"
+                            name="description" required>
+            </app-form-field>
+        </div>
+        <div>
+            <app-form-field formControlName="guid" label="Guid" type="text" id="guid" name="guid" required
+                            [pattern]="guidPattern">
+            </app-form-field>
+        </div>
+        <div>
+            <mat-checkbox formControlName="enabledGlobally">Enabled (Globally)</mat-checkbox>
+        </div>
+        <hr />
+    </form>
+    <div id="saveBtn" *ngIf="setting?.id > 0">
+        <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                (click)="save()">Save</button>
+    </div>
+    <div id="addBtn" *ngIf="!setting?.id || setting?.id == 0">
+        <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                (click)="add()">Add</button>
+    </div>
+</mat-card>

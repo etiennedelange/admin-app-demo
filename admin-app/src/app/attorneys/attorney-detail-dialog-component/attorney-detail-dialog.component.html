@@ -1,0 +1,37 @@
+﻿<div *ngIf="!(loading$ | async)">
+    <h2>{{title}}</h2>
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div>
+            <app-form-field formControlName="name" label="Name" type="text" id="name" name="name" required>
+            </app-form-field>
+        </div>
+        <div>
+            <app-form-field formControlName="kref" label="Kref" type="text" id="kref" name="kref" required>
+            </app-form-field>
+        </div>
+        <div>
+            <app-form-field formControlName="branch" label="Branch" type="text" id="branch" name="branch"
+                            required>
+            </app-form-field>
+        </div>
+        <div>
+            <app-form-field formControlName="lun" label="LUN" type="text" id="lun" name="lun" required>
+            </app-form-field>
+        </div>
+
+        <h3>Settings</h3>
+        <!-- <div class="setting-list">
+            <div class="setting" *ngFor="let setting of settings; let i = index">
+                <mat-checkbox>{{setting.description}}</mat-checkbox>
+            </div>
+        </div> -->
+        <div class="setting" *ngFor="let setting of settings; let i = index">
+            <mat-slide-toggle [(ngModel)]="setting.enabled" (change)="settingChanged($event)">
+                {{setting.description}}</mat-slide-toggle>
+        </div>
+
+        <div>
+            <button [disabled]="form.invalid" mat-raised-button color="primary">Save</button>
+        </div>
+    </form>
+</div>

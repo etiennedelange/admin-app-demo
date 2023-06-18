@@ -1,0 +1,30 @@
+﻿<header>
+    <mat-toolbar color="accent" class="mat-elevation-z3">
+        <mat-toolbar-row>
+            <a (click)="navigateToHome()" target="_self" tabindex="-1">
+                <!-- <img src="./assets/random.png" width="204" height="34"> -->
+                MySite
+            </a>
+            <span class="spacer"></span>
+            <button mat-button (click)="openSidenav()" *ngIf="isLoggedIn()">
+                <mat-icon [matBadge]="notifications.length"
+                          [matBadgeHidden]="notifications.length == 0"
+                          matBadgeOverlap="true"
+                          matBadgeColor="primary">notifications
+                </mat-icon>
+            </button>
+            <div *ngIf="isLoggedIn()">
+                <button mat-button [matMenuTriggerFor]="menu">
+                    {{username}}
+                    <mat-icon>arrow_drop_down</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="changepassword" *ngIf="userIsAdministrator()">Change
+                        password</button>
+                    <button mat-menu-item routerLink="auditlogs" *ngIf="userIsAdministrator()">Audit log</button>
+                    <button mat-menu-item (click)=logout()>Logout</button>
+                </mat-menu>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</header>

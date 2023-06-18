@@ -1,0 +1,28 @@
+<div>
+    <ngx-file-drop dropZoneLabel="Drop files here"
+                   (onFileDrop)="dropped($event)"
+                   (onFileOver)="fileOver($event)"
+                   (onFileLeave)="fileLeave($event)"
+                   [multiple]="multiple"
+                   [disabled]="disabled"
+                   contentClassName="app-drop-zone-content"
+                   dropZoneClassName="app-drop-zone">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                <div class="container">
+                    <div>
+                        <mat-icon inline="true" color="accent" class="upload-icon">upload_file</mat-icon>
+                    <div *ngIf="fileDropped">
+                        <p>{{uploadedText}}</p>
+                    </div>
+                    <div *ngIf="!fileDropped">
+                        <p>{{text}}</p>
+                        <p>OR</p>
+                        <button mat-stroked-button color="primary"
+                                (click)="openFileSelector()"
+                                type="button">Select a file</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ngx-file-drop>
+</div>

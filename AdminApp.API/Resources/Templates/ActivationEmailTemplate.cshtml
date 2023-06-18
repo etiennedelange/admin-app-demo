@@ -1,0 +1,34 @@
+﻿@model AdminApp.API.Services.EmailTemplateModel
+@{
+    <div style="font-size:10pt; font-family:arial;">
+        <table style="width:100%; border-spacing: 0; border-collapse: collapse; background-color:#006fc4">
+            <tr>
+                <td align="left" style="height: 60px; padding-left: 5px; font-family:Arial">
+                    <img src='cid:@Model.Image1ID' height="30" width="180" style="margin-left:10px">
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        Welcome!
+        <br>
+        <br>
+        An account has been created for you with the following username: @Model.Username.Address
+        <br>
+        <br>
+        Please click <a href="@Model.Url">here</a> to activate your account:
+        <br>
+        <br>
+        Please provide a password of:
+        <ul>
+            <li>at least 6 characters</li>
+            <li>a combination of upper and lower case characters</li>
+            <li>one or more numbers</li>
+        </ul>
+        Regards,
+        <br>
+        The Team
+        <br>
+        <br>
+    </div>
+}

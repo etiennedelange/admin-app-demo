@@ -1,0 +1,121 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <app-back-button></app-back-button>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-tab-group (selectedTabChange)="selectedTabChanged($event)">
+            <mat-tab label="Details">
+                <div class="mat-tab-top-spacing">
+                    <form [formGroup]="form" (ngSubmit)="save()">
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Firm</mat-label>
+                                <!-- <input matInput placeholder="Search" aria-label="Firm" type="text"
+                                       id="name" name="name" formControlName="name" [matAutocomplete]="auto"
+                                       autocomplete="off"
+                                       required> -->
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <app-form-field formControlName="kref" label="Kref" type="text" id="kref" name="kref"
+                                            required
+                                            [pattern]="guidPattern">
+                            </app-form-field>
+                        </div>
+                        <div>
+                            <app-form-field formControlName="lun" label="LUN" type="text" id="lun" name="lun" required>
+                            </app-form-field>
+                        </div>
+                        <div>
+                            <app-form-field formControlName="altlun" label="ALT_LUN" type="text" id="altlun"
+                                            name="altlun">
+                            </app-form-field>
+                        </div>
+                        <div>
+                            <app-form-field formControlName="debtorCode" label="Debtor Code" type="text" id="debtorCode"
+                                            name="debtorCode">
+                            </app-form-field>
+                        </div>
+                        <div>
+                            <app-form-field formControlName="branch" label="Branch" type="text" id="branch"
+                                            name="branch"
+                                            required>
+                            </app-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Online Activation Date</mat-label>
+                                <input matInput [matDatepicker]="activationDatePicker" formControlName="activationDate">
+                                <mat-datepicker-toggle matSuffix [for]="activationDatePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #activationDatePicker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <div>
+                                <mat-checkbox formControlName="onlineActivationChecked">Activation Checked
+                                </mat-checkbox>
+                            </div>
+                            <div>
+                                <mat-checkbox formControlName="isHostedFirm">Hosted Firm</mat-checkbox>
+                            </div>
+                        </div>
+                        <hr />
+                    </form>
+                </div>
+                <div id="saveBtn" *ngIf="attorney?.id > 0">
+                    <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                            (click)="save()">Save</button>
+                </div>
+                <div id="addBtn" *ngIf="!attorney?.id || attorney?.id == 0">
+                    <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                            (click)="add()">Add</button>
+                </div>
+            </mat-tab>
+            <mat-tab label="Settings">
+                <div class="mat-tab-top-spacing">
+                    <div>
+                        <mat-form-field>
+                            <input #filterInput
+                                   matInput
+                                   placeholder="Search"
+                                   [(ngModel)]="filterValue" />
+                        </mat-form-field>
+                    </div>
+                    <div class="setting">
+                        <mat-checkbox (change)="toggleAllSettings($event)"
+                                      [checked]="allChecked"
+                                      [indeterminate]="someChecked()"
+                                      [disabled]="!userHasPermission()">Select All
+                        </mat-checkbox>
+                    </div>
+                    <hr />
+                    <div *ngIf="(!filterValue || (filterValue && filterSettings().length > 0)); else noresults">
+                        <div class="setting list-item"
+                             *ngFor="let setting of filterSettings(); let i = index">
+                            <mat-checkbox [(ngModel)]="setting.enabled"
+                                          (change)="settingChanged(setting)"
+                                          [disabled]="!userHasPermission()">
+                                {{setting.description}}</mat-checkbox>
+                        </div>
+                    </div>
+                    <ng-template #noresults>
+                        <div class="no-results">
+                            No results match your search
+                        </div>
+                    </ng-template>
+                    <hr />
+                    <div id="saveBtn" *ngIf="attorney?.id > 0">
+                        <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                                (click)="save()">Save</button>
+                    </div>
+                    <div id="addBtn" *ngIf="!attorney?.id || attorney?.id == 0">
+                        <button [disabled]="form.invalid || !form.dirty" mat-raised-button color="primary"
+                                (click)="add()">Add</button>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>

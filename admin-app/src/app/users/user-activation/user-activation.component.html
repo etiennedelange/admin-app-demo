@@ -1,0 +1,31 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Create Account</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="form" (ngSubmit)="register()">
+            <div>
+                <app-form-field formControlName="username" label="Email" type="text" id="username" name="username"
+                                required placeholder="Email" [readonly]="true"></app-form-field>
+                <mat-icon *ngIf="emailConfirmed" color="accent">check_circle_all</mat-icon>
+                <mat-icon *ngIf="!emailConfirmed" color="warn">error</mat-icon>
+            </div>
+            <div>
+                <app-form-field formControlName="password" label="Enter password" type="password" id="password"
+                                name="password"
+                                required></app-form-field>
+            </div>
+            <div>
+                <app-form-field formControlName="confirmPassword" label="Confirm password" type="password" id="password"
+                                name="confirmPassword"
+                                required></app-form-field>
+            </div>
+            <div class="login-errors" *ngIf="errors.length > 0">
+                <mat-error *ngFor="let error of errors">{{error}}</mat-error>
+            </div>
+            <div>
+                <button [disabled]="form.invalid" mat-raised-button color="primary">Register</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

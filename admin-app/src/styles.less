@@ -1,0 +1,119 @@
+@import "./variables.less";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-display: swap;
+}
+
+h3, h2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#bootstrap-override {
+    button:focus {
+      outline: none;
+  }
+}
+
+.validation-error {
+  font-size: x-small;
+  color: red;
+  padding-top: 4px;
+  padding-bottom: 2px;
+}
+
+#search-container {
+  display: flex;
+}
+
+.back-button {
+    margin-left: -28px;
+    margin-top: -12px;
+}
+
+#saveBtn, #addBtn {
+  margin-top: 15px;
+}
+
+.form-signin {	
+	max-width: 430px;
+	padding: 15px;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+// Insert between two items to align them left and far right
+// E.g <item1><spacer><items>
+.spacer {
+    flex: 1 1 auto;
+}
+
+a > img {
+    cursor: pointer;
+}
+
+.mat-tab-top-spacing {
+    margin-top: 16px;
+}
+
+
+fieldset {
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+
+.app-drop-zone-content {
+    // font-size: large;
+}   
+
+.app-drop-zone {
+    // max-width: 300px;
+    height: 250px;
+    border-radius: 6px;
+    border-color: #eee;
+    border-style: solid;
+    border-width: 1px;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+mat-form-field {
+    width: 300px
+}
+
+.table-actions {
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.mat-row:hover {
+	cursor: pointer;
+}
+
+// Adds a left margin to buttons that are placed next to each other with the button-base class
+.button-base {
+}
+.button-base+.button-base {
+    margin-left: 10px;
+}
+
+.action-button-container {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+mat-sidenav {
+    width: 250px;
+}

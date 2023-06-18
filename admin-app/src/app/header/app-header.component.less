@@ -1,0 +1,23 @@
+﻿@import "../../variables.less";
+
+.app-header {
+    background-color: #009ddb;
+	a {
+		// color: #fff;
+		color: rgb(133, 135, 150);
+	}
+}
+
+// Without this the toolbar shadow is not cast over the side nav
+.mat-toolbar { 
+    position: relative;
+    z-index: 2;
+}
+
+.toolbar-button-icon {
+    vertical-align: middle;
+}
+
+button.mat-menu-item {
+    outline: none;
+}
